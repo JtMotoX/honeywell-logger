@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  honeywell-logger:
+    build: ./build/
+    container_name: honeywell-logger
+    env_file: .env
+    restart: always
+    volumes:
+      # TIMEZONE
+      - /etc/localtime:/etc/localtime:ro
+      # CONFIGS
+      - ./configs:/configs
+      # LOGS
+      - ./logs:/var/log/honeywell-logger
