@@ -10,7 +10,7 @@ for filename in /configs/weather.d/*.conf; do
 	echo "Getting weather data for "$(basename "$filename" | cut -d. -f1)
 
 	# GET CURRENT WEATHER
-	CURRENT_WEATHER=`curl -s "http://api.openweathermap.org/data/2.5/weather?lat=$LAT&lon=$LON&appid=$WEATHER_API_KEY"`
+	CURRENT_WEATHER=`curl -s "http://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&appid=${OPENWEATHERMAP_API_KEY}"`
 
 	# LOG WEATHER TO SPLUNK
 	JSON='{"event":'$CURRENT_WEATHER'}'
