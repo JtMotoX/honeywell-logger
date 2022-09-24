@@ -25,6 +25,7 @@ if [ "$1" = "run" ]; then
 	if ! cat /configs/honeywell.d/*.conf >/dev/null 2>&1; then
 		echo "ERROR: Getting access denied to honeywell.d config files"
 		echo "Either you did not create a conf file within your honeywell.d directory, or you need to set the correct file permissions ('chmod -R 777 configs')"
+		echo "NOTE: 'chmod -R 755 configs && find configs -type f -exec chmod 644 {} \;"
 		exit 1
 	fi
 
